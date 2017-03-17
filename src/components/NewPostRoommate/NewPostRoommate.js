@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 import update from 'react-addons-update';
-import { browserHistory } from 'react-router';
+
 
 class NewPostRoommate extends Component {
   constructor(props) {
@@ -10,16 +10,22 @@ class NewPostRoommate extends Component {
     this.state = {
       roommate: {
           title: '',
-          gender: 1,
-          smoker: 1,
-          sleep: 1,
-          dishes: 1,
-          toliet_paper: 1,
-          age: 1,
-          wallet: 1,
-          user_id: 1
+          gender: '',
+          smoker: '',
+          sleep: '',
+          dishes: '',
+          toilet_paper: '',
+          age: '',
+          wallet: '',
+          user_id: ''
       }
     };
+  }
+
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    }
   }
 
 handleChange(event) {
@@ -30,7 +36,6 @@ handleChange(event) {
       }
     }
   })
-
   this.setState(newState);
 }
 
@@ -50,7 +55,6 @@ handleSubmit(event) {
     browserHistory.push('/dashboard');
   })
   .catch((err) => {
-
   });
 }
 
@@ -101,7 +105,7 @@ handleSubmit(event) {
         </div>
         <div>
           <h3>Toilet Paper</h3>
-          <select name="Toliet_paper">
+          <select name="Toilet_paper">
             <option value='1' name="Scotts" onChange={this.handleChange.bind(this)}>Scotts</option>
             <option value='2' name="Charmin" onChange={this.handleChange.bind(this)}>Charmin</option>
             <option value='3' name="Generic" onChange={this.handleChange.bind(this)}>Generic</option>

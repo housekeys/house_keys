@@ -21,6 +21,12 @@ class NewPostApartment extends Component {
       };
     }
 
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -49,7 +55,6 @@ class NewPostApartment extends Component {
         }
       }
     });
-
     this.setState(newState);
   }
 

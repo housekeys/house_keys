@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import update from 'react-addons-update';
-import { Link } from "react-router";
-import { browserHistory } from 'react-router';
 
 
 class DashboardApartments extends Component {
@@ -10,7 +7,7 @@ class DashboardApartments extends Component {
 
     this.state = {
       apartments: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -24,7 +21,7 @@ class DashboardApartments extends Component {
   })
   .catch((err) => {
     console.log(err);
-  })
+  });
 }
 
   render(){
@@ -50,11 +47,11 @@ class DashboardApartments extends Component {
               <h2>Photo: {apartment.photo}</h2>
             </div>
           </div>
-          )
+        );
         })}
     </div>
   </div>
-    )
+    );
   }
 }
 

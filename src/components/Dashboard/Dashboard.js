@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import update from 'react-addons-update';
+
+import { Link, browserHistory } from "react-router";
 
 import DashboardApartments from './DashboardApartments';
 import DashboardRoommate from './DashboardRoommate';
+import DashboardSmoker from './DashboardSmoker';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -14,33 +17,16 @@ class Dashboard extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   if (!localStorage.getItem('token')) {
-  //       browserHistory.push('/login');
-  //   }
-  // }
-
-  componentDidMount() {
-      fetch('http://localhost:8000/', {
-          method: 'GET',
-          headers: {
-              'Authorization': window.localStorage.getItem('token')
-          }
-      })
-      .then((results) => {
-          results.json().then((content) => {
-            browserHistory.push('/dashboard');
-          });
-      })
-      .catch((err) => {
-          browserHistory.push('/login');
-      });
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    }
   }
 
   handleApartmentClick(event) {
     this.setState({
       apartmentClick: true,
-      roommateClick: false
+      roommateClick: false,
     })
   }
 
@@ -52,10 +38,11 @@ class Dashboard extends Component {
     }
   }
 
-  handleRoommateClick(event) {
+  handleRoommateClick() {
     this.setState({
       roommateClick: true,
-      apartmentClick: false
+      apartmentClick: false,
+      // smokerClick: false
     })
   }
 
@@ -89,7 +76,6 @@ class Dashboard extends Component {
       </div>
       {this.renderApartment()}
       {this.renderRoommate()}
-
     </div>
     )
   }

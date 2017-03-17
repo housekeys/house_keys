@@ -1,92 +1,70 @@
-/*Login page CSS attributes*/
-#login-button {
-  background-color:black;
+body {
+  background-color: #F4F1EA;
 }
 
-#login-page-div {
-  display:flex;
+/*  Landing Page Styling */
+
+.landing-page-links {
+  position: fixed;
+  display: flex;
   flex-direction: column;
   text-align: center;
-  height:100%;
-  width:100%;
-}
-
-#login-in-info {
-  bottom:0;
-  position: fixed;
   width: 100%;
-  padding-top: 80%;
+  margin: 0;
 }
 
-#login-page-logo {
-  display: 0;
-  height: 60%;
-  width: 100%;
-  padding-top: 800px;
-}
-
-#email-input {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width: 100%;
-  background-color: #FCA311;
-}
-
-#password-input {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width:100%;
-  background-color: #000000;
-}
-
-button{
-  background-color:#07393C;
-  color: white;
-}
-
-/*landing page css attributes*/
-#landing-page-div {
-  display:flex;
-  flex-direction: column;
+.landing-page-logo {
   text-align: center;
-  height:100%;
-  width:100%;
+  margin-top: 10%;
 }
 
-#landing-page-logo {
-  display: 0;
-  height: 60%;
-  width: 100%;
-  padding-top: 800px;
+.landing-page-links a {
+  font-size: 1.4em;
+  color: #EEE;
 }
 
-#login-in-link {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width: 100%;
-  background-color: #FCA311;
-}
-
-#sign-up-link{
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width:100%;
-  background-color: #000000;
-}
-
-#landing-page-links {
-  bottom:0;
+.lp-login {
+  z-index: 4;
   position: fixed;
-  width: 100%;
-  padding-top: 80%;
+  bottom: 15.25%;
+  left: 46%;
 }
 
-a {
-  color:white;
+.lp-sign-up {
+  z-index: 4;
+  position: fixed;
+  bottom: 3%;
+  left: 45%
 }
 
-/*End of landing page CSS attributes*/
+.lp-sign-up a {
+  color: #433E49;
+}
+
+.front-key {
+  background: url("../img/key-background-gold.svg");
+  background-overflow: hidden;
+  height: 80px;
+  background-repeat: repeat-x;
+  width: 110%;
+  position: fixed;
+  left: -15px;
+  bottom: 0;
+  z-index: 1;
+  /*background-attachment: fixed;*/
+}
+
+.back-key {
+  background: url("../img/key-background-charcoal.svg");
+  background-overflow: hidden;
+  z-index: 0;
+  height: 80px;
+  background-repeat: repeat-x;
+  width: 110%;
+  position: fixed;
+  left: -15px;
+  bottom: 9.75%;
+  /*background-attachment: fixed;*/
+}
+
+/* End of Landing Page Styling */
