@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import update from 'react-addons-update';
 
-import { Link, browserHistory } from "react-router";
+
+import { browserHistory } from "react-router";
 
 import DashboardApartments from './DashboardApartments';
 import DashboardRoommate from './DashboardRoommate';
-import DashboardSmoker from './DashboardSmoker';
 import Navigation from '../Navigation/Navigation';
 
 
@@ -31,7 +30,7 @@ class Dashboard extends Component {
     }
   }
 
-  handleApartmentClick(event) {
+  handleApartmentClick() {
     this.setState({
       apartmentClick: true,
       roommateClick: false,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, browserHistory } from "react-router";
+import {browserHistory } from "react-router";
 import update from 'react-addons-update';
 
 import Navigation from '../Navigation/Navigation';
@@ -59,7 +59,7 @@ handleSubmit(event) {
   .then(() => {
     browserHistory.push('/dashboard');
   })
-  .catch((err) => {
+  .catch(() => {
   });
 }
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
-import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
 
 class NewUser extends Component {
@@ -50,7 +49,7 @@ class NewUser extends Component {
         console.log(jwt.user)
       });
     })
-    .catch((err) => {
+    .catch(() => {
         alert('Not authenticated!');
     });
   }
