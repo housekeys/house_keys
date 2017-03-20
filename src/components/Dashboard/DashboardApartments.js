@@ -13,7 +13,7 @@ class DashboardApartments extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/apartments`, {
+  fetch(`https://house-keys-api.herokuapp.com/apartments`, {
     method: 'GET'
   })
   .then((results) => {

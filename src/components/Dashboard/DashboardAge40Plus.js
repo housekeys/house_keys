@@ -10,7 +10,7 @@ class Dashboard40Plus extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/40plus`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/40plus`, {
     method: 'GET'
   })
   .then((results) => {

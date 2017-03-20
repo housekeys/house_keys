@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
 import { browserHistory } from 'react-router';
 import update from 'react-addons-update';
 
@@ -23,7 +22,10 @@ class NewPostApartment extends Component {
   componentWillMount() {
     if (!localStorage.getItem('token')) {
         browserHistory.push('/login');
-    }
+    } else {
+        let userObj = JSON.parse(window.localStorage.user);
+        this.setState({user: userObj})
+      }
   }
 
   // Google API geoCode fetch
@@ -35,11 +37,11 @@ class NewPostApartment extends Component {
       // console.log("latitude for the boys:", newTaco.results[0].geometry.location.lat);
       // console.log("where my tudes at?:", newTaco.results[0].geometry.location.lat);
     })
-  };
+  }
 
   // submitting form submission and GET latitude longtitude request into apartments database
   databaseSubmit() {
-    fetch(`http://localhost:8000/apartments/new`, {
+    fetch(`https://house-keys-api.herokuapp.com/apartments/new`, {
       method: "POST",
       body: JSON.stringify({
         apartment: this.state.apartment,
@@ -55,7 +57,7 @@ class NewPostApartment extends Component {
     .catch((err) => {
       console.log(err);
     });
-  };
+  }
 
   // adding form submission to this.state.apartments
   handleChange(event) {
@@ -76,7 +78,7 @@ class NewPostApartment extends Component {
     console.log('Lat long:', this.state.latlong)
     this.searchLatLong(this.state.apartment.address)
     this.databaseSubmit();
-  };
+  }
 
   render(){
     return(

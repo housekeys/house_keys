@@ -10,7 +10,7 @@ class DashboardSmoker extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/smoker`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/smoker`, {
     method: 'GET'
   })
   .then((results) => {

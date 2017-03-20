@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
-import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
 
 class NewUser extends Component {
@@ -33,7 +32,7 @@ class NewUser extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/users/new`, {
+    fetch(`https://house-keys-api.herokuapp.com/users/new`, {
       method: "POST",
       body: JSON.stringify({user: this.state.user}),
       headers: {
@@ -50,7 +49,7 @@ class NewUser extends Component {
         console.log(jwt.user)
       });
     })
-    .catch((err) => {
+    .catch(() => {
         alert('Not authenticated!');
     });
   }

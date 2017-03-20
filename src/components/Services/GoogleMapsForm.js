@@ -15,28 +15,6 @@ class GoogleMapsForm extends Component {
     };
   }
 
-  // ******* SAMPLE FOR GOOGLE MAPS GEOCODE *********
-
-  // searchLatLong(location) {
-  //   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${key}`)
-  //   .then(r => r.json())
-  //   .then((data) => {
-  //     this.setState({ latLong: `${data.results[0].geometry.location.lat} ${data.results[0].geometry.location.lng}` })
-  //     console.log(this.state.latLong);
-  //     // console.log("latitude for the boys:", newTaco.results[0].geometry.location.lat);
-  //     // console.log("where my tudes at?:", newTaco.results[0].geometry.location.lat);
-  //   })
-  // };
-  //
-  // handleLatLong(event) {
-  //   console.log('i\'ve been clicked!');
-  //   event.preventDefault();
-  //   this.searchLatLong(this.state.address);
-  //   this.setState({ address: '' });
-  // }
-
-
-
   render() {
     let address = this.props.address
     if (!address) {

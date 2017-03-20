@@ -10,7 +10,7 @@ class DashboardAge31to40 extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/age31to40`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/age31to40`, {
     method: 'GET'
   })
   .then((results) => {

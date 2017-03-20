@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import update from 'react-addons-update';
-import { Link } from "react-router";
-import { browserHistory } from 'react-router';
-
-import Dashboard from './Dashboard';
 
 // List of 21 components that render onClick
 import DashboardSmoker from './DashboardSmoker';
@@ -45,7 +40,7 @@ class DashboardRoommate extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates`, {
     method: 'GET'
   })
   .then((results) => {

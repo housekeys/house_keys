@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
-import { Route, Router, browserHistory } from "react-router";
+import {browserHistory } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch('http://localhost:8000/users/login', {
+    fetch('https://house-keys-api.herokuapp.com/users/login', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -43,7 +42,7 @@ class Login extends Component {
         browserHistory.push('/dashboard');
       });
     })
-    .catch((err) => {
+    .catch(() => {
         alert('Not authenticated!');
     });
   }

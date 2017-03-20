@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import update from 'react-addons-update';
 
 import { Link, browserHistory } from "react-router";
 
@@ -12,7 +11,7 @@ class Navigation extends Component {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('user');
     browserHistory.push('/');
-  };
+  }
 
   render() {
     return(
@@ -32,6 +31,6 @@ class Navigation extends Component {
       </div>
     )
   }
-};
+}
 
 export default Navigation;

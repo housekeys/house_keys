@@ -10,7 +10,7 @@ class DashboardGeneric extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/generic`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/generic`, {
     method: 'GET'
   })
   .then((results) => {

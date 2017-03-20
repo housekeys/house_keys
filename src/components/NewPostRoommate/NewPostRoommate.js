@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link, browserHistory } from "react-router";
+import {browserHistory } from "react-router";
 import update from 'react-addons-update';
 
 import Navigation from '../Navigation/Navigation';
-
-
 
 class NewPostRoommate extends Component {
   constructor(props) {
@@ -29,6 +27,9 @@ class NewPostRoommate extends Component {
   componentWillMount() {
     if (!localStorage.getItem('token')) {
         browserHistory.push('/login');
+    } else {
+      let userObj = JSON.parse(window.localStorage.user);
+      this.setState({user: userObj})
     }
   }
 
@@ -47,7 +48,7 @@ handleChange(event) {
 handleSubmit(event) {
   event.preventDefault();
 
-  fetch('http://localhost:8000/roommates/new', {
+  fetch('https://house-keys-api.herokuapp.com/roommates/new', {
     method: 'POST',
     body: JSON.stringify({
       roommate: this.state.roommate
@@ -59,7 +60,7 @@ handleSubmit(event) {
   .then(() => {
     browserHistory.push('/dashboard');
   })
-  .catch((err) => {
+  .catch(() => {
   });
 }
 

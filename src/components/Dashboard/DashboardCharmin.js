@@ -10,7 +10,7 @@ class DashboardCharmin extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/charmin`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/charmin`, {
     method: 'GET'
   })
   .then((results) => {

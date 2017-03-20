@@ -10,7 +10,7 @@ class DashboardSleepAfterMidnight extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/sleepaftermidnight`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/sleepaftermidnight`, {
     method: 'GET'
   })
   .then((results) => {

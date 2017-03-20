@@ -10,7 +10,7 @@ class DashboardDishesEveryday extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/disheseveryday`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/disheseveryday`, {
     method: 'GET'
   })
   .then((results) => {
