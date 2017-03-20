@@ -10,7 +10,7 @@ class DashboardWhatAreDishes extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/whataredishes`, {
+  fetch(`https://house-keys-api.herokuapp.com/whataredishes`, {
     method: 'GET'
   })
   .then((results) => {

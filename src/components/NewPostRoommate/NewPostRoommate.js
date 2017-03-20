@@ -47,7 +47,7 @@ handleChange(event) {
 handleSubmit(event) {
   event.preventDefault();
 
-  fetch('http://localhost:8000/roommates/new', {
+  fetch('https://house-keys-api.herokuapp.com/roommates/new', {
     method: 'POST',
     body: JSON.stringify({
       roommate: this.state.roommate

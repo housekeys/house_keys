@@ -10,7 +10,7 @@ class DashboardRent2000plus extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates/rent2000plus`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates/rent2000plus`, {
     method: 'GET'
   })
   .then((results) => {

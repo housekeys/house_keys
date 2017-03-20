@@ -38,7 +38,7 @@ class NewPostApartment extends Component {
 
   // submitting form submission and GET latitude longtitude request into apartments database
   databaseSubmit() {
-    fetch(`http://localhost:8000/apartments/new`, {
+    fetch(`https://house-keys-api.herokuapp.com/apartments/new`, {
       method: "POST",
       body: JSON.stringify({
         apartment: this.state.apartment,

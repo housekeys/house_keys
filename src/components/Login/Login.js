@@ -26,7 +26,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch('http://localhost:8000/users/login', {
+    fetch('https://house-keys-api.herokuapp.com/users/login', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {

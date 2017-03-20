@@ -32,7 +32,7 @@ class NewUser extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/users/new`, {
+    fetch(`https://house-keys-api.herokuapp.com/users/new`, {
       method: "POST",
       body: JSON.stringify({user: this.state.user}),
       headers: {

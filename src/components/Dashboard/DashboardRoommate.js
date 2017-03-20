@@ -40,7 +40,7 @@ class DashboardRoommate extends Component {
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/roommates`, {
+  fetch(`https://house-keys-api.herokuapp.com/roommates`, {
     method: 'GET'
   })
   .then((results) => {
