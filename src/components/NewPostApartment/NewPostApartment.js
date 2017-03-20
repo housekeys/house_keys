@@ -22,7 +22,10 @@ class NewPostApartment extends Component {
   componentWillMount() {
     if (!localStorage.getItem('token')) {
         browserHistory.push('/login');
-    }
+    } else {
+        let userObj = JSON.parse(window.localStorage.user);
+        this.setState({user: userObj})
+      }
   }
 
   // Google API geoCode fetch

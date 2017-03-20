@@ -4,8 +4,6 @@ import update from 'react-addons-update';
 
 import Navigation from '../Navigation/Navigation';
 
-
-
 class NewPostRoommate extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +27,9 @@ class NewPostRoommate extends Component {
   componentWillMount() {
     if (!localStorage.getItem('token')) {
         browserHistory.push('/login');
+    } else {
+      let userObj = JSON.parse(window.localStorage.user);
+      this.setState({user: userObj})
     }
   }
 
