@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "A roomate finder using React.js &amp; Express.js",
   "engines": {
-    "npm": ">=3"
+    "npm": ">=3",
+    "node": "7.4.0"
   },
   "scripts": {
     "setup": "node tools/setup/setupMessage.js && npm install && node tools/setup/setup.js",
