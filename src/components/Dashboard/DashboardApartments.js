@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import update from 'react-addons-update';
-import { Link } from "react-router";
-import { browserHistory } from 'react-router';
 
+import React, { Component } from "react";
+
+import GoogleMapsForm from '../Services/GoogleMapsForm';
 
 class DashboardApartments extends Component {
   constructor(props) {
@@ -10,11 +9,11 @@ class DashboardApartments extends Component {
 
     this.state = {
       apartments: []
-    }
+    };
   }
 
   componentDidMount() {
-  fetch(`http://localhost:8000/apartments`, {
+  fetch(`https://house-keys-api.herokuapp.com/apartments`, {
     method: 'GET'
   })
   .then((results) => {
@@ -24,37 +23,31 @@ class DashboardApartments extends Component {
   })
   .catch((err) => {
     console.log(err);
-  })
+  });
 }
 
-  render(){
-    return(
-    <div>
-      <div className="container">
-        {this.state.apartments.map((apartment) => {
-          return(
-          <div key={apartment.id} className="">
-            <div>
-              <h2>Title: {apartment.title}</h2>
-            </div>
-            <div>
-              <h2>Address: {apartment.address}</h2>
-            </div>
-            <div>
-              <h2>Rent: ${apartment.rent}</h2>
-            </div>
-            <div>
-              <h2>Description: {apartment.description}</h2>
-            </div>
-            <div>
-              <h2>Photo: {apartment.photo}</h2>
-            </div>
+render(){
+  return(
+  <div>
+    <div className="aptContainer">
+      {this.state.apartments.map((apartment) => {
+        return(
+          <div key={apartment.id} className="aptCard">
+            <h4>{apartment.title}</h4>
+            <img className="aptPhoto" src={apartment.photo} />
+            <div><strong>Address</strong></div>
+            <div>{apartment.address}</div>
+            <div><strong>Rent</strong></div>
+            <div>$ {apartment.rent}</div>
+            <div><strong>Description</strong></div>
+            <div>{apartment.description}</div>
+            <GoogleMapsForm className="map" address={apartment.address}/>
           </div>
-          )
-        })}
+        );
+      })}
     </div>
   </div>
-    )
+  );
   }
 }
 

@@ -1,92 +1,290 @@
-/*Login page CSS attributes*/
-#login-button {
-  background-color:black;
+body {
+  background-color: #F4F1EA;
 }
 
-#login-page-div {
-  display:flex;
+span {
+  color: #E8C363;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.apartment-photo {
+  height: 200px;
+  widows: 200px;
+}
+
+/*  Landing Page Styling */
+
+.landing-page-links {
+  position: fixed;
+  display: flex;
   flex-direction: column;
   text-align: center;
-  height:100%;
-  width:100%;
+  width: 100%;
 }
 
-#login-in-info {
-  bottom:0;
+.landing-page-logo {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.landing-page-links a {
+  font-size: 1.4em;
+  color: #EEE;
+}
+
+.lp-login {
+  z-index: 4;
   position: fixed;
   width: 100%;
-  padding-top: 80%;
+  bottom: 15.25%;
+  text-align: center;
 }
 
-#login-page-logo {
-  display: 0;
-  height: 60%;
+.lp-sign-up {
+  z-index: 3;
+  position: fixed;
   width: 100%;
-  padding-top: 800px;
+  bottom: 3%;
+  text-align: center;
 }
 
-#email-input {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
+.lp-sign-up a {
+  color: #433E49;
+}
+
+.front-key {
+  background: url("../img/key-background-gold.svg");
+  background-overflow: hidden;
+  height: 80px;
+  background-repeat: repeat-x;
+  width: 110%;
+  position: fixed;
+  left: -15px;
+  bottom: 0;
+  /*background-attachment: fixed;*/
+}
+
+.back-key {
+  background: url("../img/key-background-charcoal.svg");
+  background-overflow: hidden;
+  height: 80px;
+  background-repeat: repeat-x;
+  width: 110%;
+  position: fixed;
+  left: -15px;
+  bottom: 9.75%;
+  /*background-attachment: fixed;*/
+}
+
+.back-key-liftblock {
+  background-color: #333;
+  height: 80px;
+  position: fixed;
+  left: -15px;
+  bottom: 0;
+  width: 110%;
+}
+
+
+/* End of Landing Page Styling */
+
+/******************************/
+
+/* Dashboard Views */
+
+.selection-titles {
+  text-align: center;
+  margin-left: 2px;
+}
+
+.roommate-apartment-button {
+  display: flex;
+  margin-left: 20px;
+}
+
+.params-view {
+  margin-right: 5px;
+}
+/* END dashboard views */
+
+/*************************************/
+
+/* param Buttons*/
+
+.db-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.db-button {
   width: 100%;
-  background-color: #FCA311;
 }
+/* END param buttons*/
 
-#password-input {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width:100%;
-  background-color: #000000;
-}
+/*************************************/
 
-button{
-  background-color:#07393C;
+/* Nav Views */
+
+.nav-header {
+  width: 120%;
+  margin-left: -10px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  background-color: #333333;
   color: white;
+  border-bottom: 4px solid #222;
+  padding: 25px 25px 10px 25px;
 }
 
-/*landing page css attributes*/
-#landing-page-div {
-  display:flex;
-  flex-direction: column;
-  text-align: center;
-  height:100%;
-  width:100%;
+
+.navTitle{
+  display: flex;
+  align-items: flex-end;
+  margin-left: 15px;
 }
 
-#landing-page-logo {
-  display: 0;
-  height: 60%;
-  width: 100%;
-  padding-top: 800px;
+.navTitle h1 {
+  margin-left: 20px;
+  line-height: 100%;
 }
 
-#login-in-link {
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width: 100%;
-  background-color: #FCA311;
+.collection {
+  display: flex;
+  margin-left: 10px;
 }
 
-#sign-up-link{
-  font-family: 'Lalezar', cursive;
-  font-size:30px;
-  height: 100px;
-  width:100%;
-  background-color: #000000;
+.collection-item {
+  margin-right: 10px;
+  color: white;
+  margin: 10px 15px 0 15px;
 }
 
-#landing-page-links {
-  bottom:0;
+.logoutButton {
   position: fixed;
-  width: 100%;
-  padding-top: 80%;
+  right: 10px;
+  top: 10px;
 }
 
-a {
-  color:white;
+.navLogo {
+  background: url("../img/House_Keys_Logo-Nav.svg");
+  width: 115px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/*End of landing page CSS attributes*/
+/* END nav views */
+
+/*********************************/
+
+/* Card styling */
+
+  /* Apartment Cards */
+  .aptContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+  }
+
+  .aptCard {
+    background-color: #FFF;
+    text-align: center;
+    width: 300px;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+  }
+
+  .aptCard h4 {
+    background-color: #333;
+    border-bottom: 3px solid #e8c363;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+  }
+
+  .aptPhoto {
+    width: 250px;
+    height: 175px;
+    object-fit: cover;
+  }
+
+  .map {
+    width: 250px;
+    height: 175px;
+  }
+  /* end of apartment cards */
+
+  /* Roommate Cards */
+  .roommateContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+  }
+
+  .roommateCard {
+    background-color: #FFF;
+    text-align: center;
+    width: 300px;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+  }
+
+  .roommateCard h4 {
+    background-color: #333;
+    border-bottom: 3px solid #e8c363;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+  }
+
+  /* end of roommate cards */
+
+/* END of Cards */
+
+
+/* New Apartment Form */
+
+.formFlex {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+}
+
+.formFlexMap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  /*width: 85%;*/
+}
+
+.aptForm {
+  width: 400px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.formMap {
+  width: 350px;
+  height: 400px;
+  border: 2px solid #E8C363;
+  border-radius: 5px;
+}
+
+.drop-down-placeholder {
+  color: #A9ABBA;
+}
+
+.roommate-form {
+  margin-top: 20px;
+  text-align: center;
+}
+/* END NEW APARTMENT FORM */
+
+.latLong {
+  display: none;
+}

@@ -2,6 +2,9 @@
 logs
 *.log*
 
+# GOOGLE API KEY
+.env
+
 # Runtime data
 pids
 *.pid

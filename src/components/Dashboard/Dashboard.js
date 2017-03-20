@@ -1,46 +1,39 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+
+
+import { browserHistory } from "react-router";
 
 import DashboardApartments from './DashboardApartments';
 import DashboardRoommate from './DashboardRoommate';
+import Navigation from '../Navigation/Navigation';
+
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props)
+
     this.state = {
       apartments: [],
       roommates: [],
+      user: {}
     };
   }
 
-  // componentWillMount() {
-  //   if (!localStorage.getItem('token')) {
-  //       browserHistory.push('/login');
-  //   }
-  // }
-
-  componentDidMount() {
-      fetch('http://localhost:8000/', {
-          method: 'GET',
-          headers: {
-              'Authorization': window.localStorage.getItem('token')
-          }
-      })
-      .then((results) => {
-          results.json().then((content) => {
-            browserHistory.push('/dashboard');
-          });
-      })
-      .catch((err) => {
-          browserHistory.push('/login');
-      });
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    } else {
+      let userObj = JSON.parse(window.localStorage.user);
+      this.setState({user: userObj})
+    }
   }
 
-  handleApartmentClick(event) {
+  handleApartmentClick() {
     this.setState({
       apartmentClick: true,
-      roommateClick: false
+      roommateClick: false,
     })
   }
 
@@ -52,10 +45,10 @@ class Dashboard extends Component {
     }
   }
 
-  handleRoommateClick(event) {
+  handleRoommateClick() {
     this.setState({
       roommateClick: true,
-      apartmentClick: false
+      apartmentClick: false,
     })
   }
 
@@ -63,33 +56,35 @@ class Dashboard extends Component {
     if(this.state.roommateClick) {
       return(
         <DashboardRoommate />
+
       )
     }
   }
 
+
+
   render(){
     return(
       <div>
-        <nav>
-          <h1>{this.state.message}</h1>
-          <h1> Welcome, Rachel</h1>
-        </nav>
-        <Link to="user/new/apartment">New Apartment Post</Link><br />
-        <Link to="user/new/roommate">New Roomate Post</Link><br />
-      <div>
-        <button onClick={this.handleApartmentClick.bind(this)} >
-          Apartment
-        </button>
+      <Navigation
+        user={this.state.user}
+        className="welcome"
+      />
+      <div className="roommate-apartment-button">
+        <div className="params-view">
+          <button onClick={this.handleApartmentClick.bind(this)} >
+            Apartment
+          </button>
+        </div>
+        <div className="params-view">
+          <button onClick={this.handleRoommateClick.bind(this)} >
+            Roommate
+          </button>
+        </div>
       </div>
 
-      <div>
-        <button onClick={this.handleRoommateClick.bind(this)} >
-          Roommate
-        </button>
-      </div>
       {this.renderApartment()}
       {this.renderRoommate()}
-
     </div>
     )
   }

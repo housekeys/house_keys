@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import {browserHistory } from "react-router";
 import update from 'react-addons-update';
-import { browserHistory } from 'react-router';
+
+import Navigation from '../Navigation/Navigation';
 
 class NewPostRoommate extends Component {
   constructor(props) {
@@ -10,19 +11,30 @@ class NewPostRoommate extends Component {
     this.state = {
       roommate: {
           title: '',
-          gender: 1,
-          smoker: 1,
-          sleep: 1,
-          dishes: 1,
-          toliet_paper: 1,
-          age: 1,
-          wallet: 1,
-          user_id: 1
-      }
+          email: '',
+          gender: '',
+          smoker: '',
+          sleep: '',
+          dishes: '',
+          toilet_paper: '',
+          age: '',
+          wallet: ''
+      },
+      user: {}
     };
   }
 
+  componentWillMount() {
+    if (!localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    } else {
+      let userObj = JSON.parse(window.localStorage.user);
+      this.setState({user: userObj})
+    }
+  }
+
 handleChange(event) {
+  console.log(event.target.value)
   let newState = update(this.state, {
     roommate: {
       $merge: {
@@ -30,14 +42,13 @@ handleChange(event) {
       }
     }
   })
-
   this.setState(newState);
 }
 
 handleSubmit(event) {
   event.preventDefault();
 
-  fetch('http://localhost:8000/roommates/new', {
+  fetch('https://house-keys-api.herokuapp.com/roommates/new', {
     method: 'POST',
     body: JSON.stringify({
       roommate: this.state.roommate
@@ -49,86 +60,70 @@ handleSubmit(event) {
   .then(() => {
     browserHistory.push('/dashboard');
   })
-  .catch((err) => {
-
+  .catch(() => {
   });
 }
+
 
   render(){
     return(
       <div>
-        <nav>
-          <h2 className="">Add Roomate</h2>
-        </nav>
-        <Link to="/dashboard">Back to Home</Link>
-        <form onSubmit={this.handleSubmit.bind(this)} className="">
-          <div className="">
-            Title
-          </div>
-          <div>
-            <input name="title" placeholder="title" onChange={this.handleChange.bind(this)}></input>
-          </div>
-        <div>
-          <h3>Gender</h3>
-          <select name="gender">
-            <option value='1' name="male" onChange={this.handleChange.bind(this)}>male</option>
-            <option value='2' name="female" onChange={this.handleChange.bind(this)}>female</option>
+        <Navigation
+          user={this.state.user}
+          className="welcome"
+        />
+        <h4 className="roommate-form">Looking For A Roommate?<br/>
+        Let  <span>HouseKeys</span>  Help</h4>
+        <form onSubmit={this.handleSubmit.bind(this)} className="formFlex">
+          <input type="text" name="title" placeholder="Title" onChange={this.handleChange.bind(this)}></input>
+          <input name="email" type="text" placeholder="Email" onChange={this.handleChange.bind(this)}></input>
+          <select className="drop-down-placeholder" name="gender" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
-        </div>
-        <div>
-          <h3>Smoke?</h3>
-          <select name="smoker">
-            <option value='1' name="yes" onChange={this.handleChange.bind(this)}>yes</option>
-            <option value='2' name="no" onChange={this.handleChange.bind(this)}>no</option>
+          <select className="drop-down-placeholder" name="smoker" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>Smoker</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
           </select>
-        </div>
-        <div>
-          <h3>Sleep</h3>
-          <select name="Sleep">
-            <option value='1' name="before 10pm" onChange={this.handleChange.bind(this)}>before 10pm</option>
-            <option value='2' name="around 10pm" onChange={this.handleChange.bind(this)}>around 10pm</option>
-            <option value='3' name="after midnight" onChange={this.handleChange.bind(this)}>after midnight</option>
+          <select className="drop-down-placeholder" name="sleep" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>I Go To Bed...</option>
+            <option value="Before 10pm">Before 10pm</option>
+            <option value="Around 10pm">Around 10pm</option>
+            <option value="After Midnight">After Midnight</option>
           </select>
-        </div>
-        <div>
-          <h3>Dishes</h3>
-          <select name="Dishes">
-            <option value='1' name="After every meal" onChange={this.handleChange.bind(this)}>After every meal</option>
-            <option value='2' name="Everday" onChange={this.handleChange.bind(this)}>Everday</option>
-            <option value='3' name="When the sink is full" onChange={this.handleChange.bind(this)}>When the sink is full</option>
-            <option value='4' name="What are dishes?!" onChange={this.handleChange.bind(this)}>What are dishes?!</option>
+          <select className="drop-down-placeholder" name="dishes" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>I Wash Dishes...</option>
+            <option value="After every meal">After every meal</option>
+            <option value="Everyday">Everyday</option>
+            <option value="When the sink is full">When the sink is full</option>
+            <option value="What are dishes?!">What are dishes?!</option>
           </select>
-        </div>
-        <div>
-          <h3>Toilet Paper</h3>
-          <select name="Toliet_paper">
-            <option value='1' name="Scotts" onChange={this.handleChange.bind(this)}>Scotts</option>
-            <option value='2' name="Charmin" onChange={this.handleChange.bind(this)}>Charmin</option>
-            <option value='3' name="Generic" onChange={this.handleChange.bind(this)}>Generic</option>
+          <select className="drop-down-placeholder" name="toilet_paper" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>Toiler Paper...</option>
+            <option value="Scotts">Scotts</option>
+            <option value="Charmin">Charmin</option>
+            <option value="Generic">Generic</option>
           </select>
-        </div>
-        <div>
-          <h3>Age</h3>
-          <select name="age">
-            <option value='1' name="21 -30" onChange={this.handleChange.bind(this)}>21 -30</option>
-            <option value='2' name="31 - 40" onChange={this.handleChange.bind(this)}>31 - 40</option>
-            <option value='3' name="41 +" onChange={this.handleChange.bind(this)}>41 +</option>
+          <select className="drop-down-placeholder" name="age" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>Age</option>
+            <option value="21 - 30">21 - 30</option>
+            <option value="31 - 40">31 - 40</option>
+            <option value="41+">41+</option>
           </select>
-        </div>
-        <div>
-          <h3>Wallet</h3>
-          <select name="Wallet">
-            <option value='1' name="$800 - $1000" onChange={this.handleChange.bind(this)}>$800 - $1000</option>
-            <option value='2' name="$1001 - $1500" onChange={this.handleChange.bind(this)}>$1001 - $1500</option>
-            <option value='3' name="$1501 - $2000" onChange={this.handleChange.bind(this)}>$1501 - $2000</option>
-            <option value='4' name="$2000 +" onChange={this.handleChange.bind(this)}>$2000 +</option>
+          <select className="drop-down-placeholder" name="wallet" onChange={this.handleChange.bind(this)}>
+            <option disabled selected>Desirable Monthly Rent</option>
+            <option value="$800 - $1000">$800 - $1000</option>
+            <option value="$1001 - $1500">$1001 - $1500</option>
+            <option value="$1501 - $2000">$1501 - $2000</option>
+            <option value="$2000+">$2000+</option>
           </select>
-        </div>
-        <button href="/dashboard" type="submit">Submit</button>
-      </form>
+          <button href="/dashboard" type="submit">Submit</button>
+        </form>
       </div>
     )
   }
-  }
+}
 
   export default NewPostRoommate;
