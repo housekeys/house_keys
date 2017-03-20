@@ -8,7 +8,6 @@ class Navigation extends Component {
     super(props);
   }
 
-
   logout() {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('user');
@@ -20,10 +19,11 @@ class Navigation extends Component {
       <div className="nav-header">
         <nav>
           <div className="navTitle">
-            <img className="navLogo" src="../img/House_Keys_Logo-Nav.svg" width="200px"/>
-            <h1> Welcome, {this.props.user.first_name}</h1>
+            <div className="navLogo"></div>
+            <h2> Welcome, {this.props.user.first_name}</h2>
           </div>
           <div className="collection">
+            <Link className="collection-item " to="/dashboard">Home</Link>
             <Link className="collection-item" to="/user/new/apartment">Add New Apartment</Link><br />
             <Link className="collection-item" to="/user/new/roommate">Add New Roommate</Link>
           </div>

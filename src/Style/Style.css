@@ -2,6 +2,12 @@ body {
   background-color: #F4F1EA;
 }
 
+span {
+  color: #E8C363;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
 .apartment-photo {
   height: 200px;
   widows: 200px;
@@ -94,6 +100,7 @@ body {
 
 .roommate-apartment-button {
   display: flex;
+  margin-left: 20px;
 }
 
 .params-view {
@@ -109,6 +116,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: 20px;
 }
 
 .db-button {
@@ -122,25 +130,36 @@ body {
 
 .nav-header {
   width: 120%;
-  margin: -10px;
+  margin-left: -10px;
+  margin-top: -10px;
+  margin-bottom: 10px;
   background-color: #333333;
   color: white;
-  border-bottom: 2px solid #222;
-  margin-bottom: 20px;
-  padding: 25px;
+  border-bottom: 4px solid #222;
+  padding: 25px 25px 10px 25px;
 }
+
 
 .navTitle{
   display: flex;
+  align-items: flex-end;
+  margin-left: 15px;
+}
+
+.navTitle h1 {
+  margin-left: 20px;
+  line-height: 100%;
 }
 
 .collection {
   display: flex;
+  margin-left: 10px;
 }
 
 .collection-item {
   margin-right: 10px;
   color: white;
+  margin: 10px 15px 0 15px;
 }
 
 .logoutButton {
@@ -149,9 +168,122 @@ body {
   top: 10px;
 }
 
-
+.navLogo {
+  background: url("../img/House_Keys_Logo-Nav.svg");
+  width: 115px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /* END nav views */
+
+/*********************************/
+
+/* Card styling */
+
+  /* Apartment Cards */
+  .aptContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+  }
+
+  .aptCard {
+    background-color: #FFF;
+    text-align: center;
+    width: 300px;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+  }
+
+  .aptCard h4 {
+    background-color: #333;
+    border-bottom: 3px solid #e8c363;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+  }
+
+  .aptPhoto {
+    width: 250px;
+    height: 175px;
+    object-fit: cover;
+  }
+
+  .map {
+    width: 250px;
+    height: 175px;
+  }
+  /* end of apartment cards */
+
+  /* Roommate Cards */
+  .roommateContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+  }
+
+  .roommateCard {
+    background-color: #FFF;
+    text-align: center;
+    width: 300px;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+  }
+
+  .roommateCard h4 {
+    background-color: #333;
+    border-bottom: 3px solid #e8c363;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+  }
+
+  /* end of roommate cards */
+
+/* END of Cards */
+
+
+/* New Apartment Form */
+
+.formFlex {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+}
+
+.formFlexMap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  /*width: 85%;*/
+}
+
+.aptForm {
+  width: 400px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.formMap {
+  width: 350px;
+  height: 400px;
+  border: 2px solid #E8C363;
+  border-radius: 5px;
+}
+
+.drop-down-placeholder {
+  color: #A9ABBA;
+}
+
+.roommate-form {
+  margin-top: 20px;
+  text-align: center;
+}
+/* END NEW APARTMENT FORM */
 
 .latLong {
   display: none;

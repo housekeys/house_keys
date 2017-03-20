@@ -29,41 +29,26 @@ class DashboardApartments extends Component {
 render(){
   return(
   <div>
-    <div className="container">
+    <div className="aptContainer">
       {this.state.apartments.map((apartment) => {
         return(
-        <div key={apartment.id} className="">
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Address</th>
-                <th>Rent</th>
-                <th>Description</th>
-                <th>Contact</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{apartment.title}</td>
-                <td>{apartment.address}</td>
-                <td>$ {apartment.rent}</td>
-                <td>{apartment.description}</td>
-                <td><a href={"mailto:" + apartment.email}>Email</a></td>
-              </tr>
-            </tbody>
-          </table>
-          <img className="apartment-photo" src={apartment.photo} />
-          <div className="map">
-            <GoogleMapsForm address={apartment.address}/>
+          <div key={apartment.id} className="aptCard">
+            <h4>{apartment.title}</h4>
+            <img className="aptPhoto" src={apartment.photo} />
+            <div><strong>Address</strong></div>
+            <div>{apartment.address}</div>
+            <div><strong>Rent</strong></div>
+            <div>$ {apartment.rent}</div>
+            <div><strong>Description</strong></div>
+            <div>{apartment.description}</div>
+            <GoogleMapsForm className="map" address={apartment.address}/>
           </div>
-        </div>
-      );
+        );
       })}
+    </div>
   </div>
-</div>
   );
-}
+  }
 }
 
 export default DashboardApartments;

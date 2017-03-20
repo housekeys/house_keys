@@ -23,9 +23,7 @@ class GoogleMapsForm extends Component {
     console.log(address)
     return (
       <div>
-        <iframe
-          width="600"
-          height="450"
+        <iframe className={this.props.className}
           frameBorder="0"
           src={`https://www.google.com/maps/embed/v1/place?key=${key}&q=${address}`} >
         </iframe>
