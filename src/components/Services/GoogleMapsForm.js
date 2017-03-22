@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
 
-const key = process.env.API_KEY;
+const key = 'AIzaSyDaE4S-Ud2fqGMqJLKRu2pwjsnOle0W6xY'
 
 
 // API Key Porject Name is HouseKeys NOT House_Keys
