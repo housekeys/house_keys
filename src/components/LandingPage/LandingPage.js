@@ -20,8 +20,8 @@ class LandingPage extends Component {
       <div className="landing-page-div">
         <div className="background-keys">
           <div className="back-key"></div>
-          <div className="back-key-liftblock"></div>
-          <div className="front-key"></div>
+          {/* <div className="back-key-liftblock"></div>
+          <div className="front-key"></div> */}
         </div>
         <div className="landing-page-links">
           <div className="landing-page-logo"><img src="../img/House_Keys_Logo.svg" width="200px"/></div>
