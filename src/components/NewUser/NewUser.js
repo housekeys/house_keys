@@ -37,7 +37,8 @@ class NewUser extends Component {
       body: JSON.stringify({user: this.state.user}),
       headers: {
         "Content-Type": 'application/json'
-      }
+      },
+      mode: "no-cors"
     })
     .then((results) => {
       results.json().then((jwt) => {
