@@ -24,7 +24,7 @@ class LandingPage extends Component {
           <div className="front-key"></div> */}
         </div>
         <div className="landing-page-links">
-          <div className="landing-page-logo"><img src="../img/House_Keys_Logo.svg" width="200px"/></div>
+          <div className="landing-page-logo"><img src={require(`../../img/House_Keys_Logo.svg`)} width="200px"/></div>
           <div className="lp-login link">
             <Link to='/login'>Login</Link>
           </div>
